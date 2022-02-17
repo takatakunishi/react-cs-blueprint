@@ -1,3 +1,3 @@
-import hello from "index"
+import hello from "src/index"
 
 hello()
