@@ -19,4 +19,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         package-manager: npm
-        test-script: npm coverage:ci
+        test-script: npm run coverage:ci
