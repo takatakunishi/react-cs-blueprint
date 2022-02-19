@@ -14,3 +14,9 @@ jobs:
         node-version: 'v16.13.1'
     - run: npm install
     - run: npm run test
+    - name: Unit Test with coverage
+      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.3
+      - with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        package-manager: npm
+        test-script: npm run coverage:ci
