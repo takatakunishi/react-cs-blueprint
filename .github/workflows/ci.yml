@@ -1,0 +1,23 @@
+name: CI
+
+on: pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js v16.13.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 'v16.13.1'
+
+    - name: Install dependemcies
+      run: npm install
+
+    - name: Unit Test with coverage
+      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.3
+      - with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        test-script: npm run coverage:ci

@@ -10,7 +10,8 @@
     "clean": "rimraf dist",
     "build:common": "tsc -p base.tsconfig.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build": "npm run clean & run-p build:*"
+    "build": "npm run clean & run-p build:*",
+    "coverage:ci": "jest --coverage --silent --ci --testLocationInResults --json --outputFile=\"report.json\""
   },
   "bin": {
     "my-hello-lib": "dist/bin/index.js"
