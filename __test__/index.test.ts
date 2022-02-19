@@ -1,4 +1,4 @@
-import hello from "src/index"
+import { hello } from "src/index"
 describe("hello() tests", () => {
     test("show hello", () => {
         const log = jest.spyOn(console, "log").mockReturnValue()
