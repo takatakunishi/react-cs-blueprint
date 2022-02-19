@@ -1,6 +1,6 @@
-name: Sample Test
+name: CI
 
-on: push
+on: pull_request:
 
 jobs:
   test:
@@ -12,11 +12,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 'v16.13.1'
-    - run: npm install
-    - run: npm run test
+
+    - name: Install dependemcies
+      run: npm install
+
     - name: Unit Test with coverage
       - uses: artiomtr/jest-coverage-report-action@v2.0-rc.3
       - with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        package-manager: npm
         test-script: npm run coverage:ci
