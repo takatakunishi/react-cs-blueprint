@@ -8,7 +8,7 @@ const config: Config.InitialOptions = {
     collectCoverage: true,
     errorOnDeprecated: true,
     roots: [
-        "<rootDir>/src"
+        "<rootDir>"
     ],
     testMatch: [
         "**/__tests__/**/*.+(ts|tsx|js)",
@@ -24,7 +24,7 @@ const config: Config.InitialOptions = {
         "ts",
         'json'
     ],
-    "modulePaths": ["<rootDir>/src"],
+    "modulePaths": ["<rootDir>"],
     moduleDirectories: [
         "node_modules",
         "src"
