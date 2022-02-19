@@ -1,0 +1,63 @@
+{
+    // 適用する環境
+    "env": {
+        "es6": true,
+        "node": true,
+        "commonjs": true
+    },
+    // 構文解析（パーサー）
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        // モジュール形式のソースコードを用います
+        "sourceType": "module",
+        // JS のバージョンは最新とします
+        "ecmaVersion": "latest",
+        "project": "./base.tsconfig.json" // 追加
+    },
+    // プラグイン
+    "plugins": [
+        "@typescript-eslint",
+        "import"
+    ],
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "arrow-body-style": "off"
+    },
+    /**
+     *  ルールのインポート
+     *  ここでは基本的に 'recommended' に従います
+     */
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors", // 追加
+        "plugin:import/warnings", // 追加
+        "plugin:import/typescript", // 追加
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            },
+            "typescript": {
+                "project": "src"
+            }
+        }
+    }
+}
